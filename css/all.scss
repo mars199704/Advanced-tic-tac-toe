@@ -1,0 +1,211 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$cell-size: 80px;
+$mark-size: 70px;
+
+body{
+  display: flex;
+  align-items: center;
+}
+
+.playground{
+  margin: 0;
+  width: 80vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  justify-content: center;
+  align-content: center;
+}
+
+.board{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3,auto);
+  border: 2px solid black;
+}
+
+.board.lock{
+  background-color:gray;
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.board.x .cell:not(.x):not(.o):hover::before, .board.x .cell:not(.x):not(.o):hover::after{
+  content: '';
+  position: absolute;
+  width: $mark-size*0.15;
+  height: $mark-size;
+  background-color: gray;
+}
+
+.board.x .cell:not(.x):not(.o):hover::before{
+  transform: rotate(45deg);
+}
+.board.x .cell:not(.x):not(.o):hover::after{
+  transform: rotate(-45deg)
+}
+
+.board.o .cell:not(.x):not(.o):hover::after{
+  content: '';
+  position: absolute;
+  width: $mark-size*.7;
+  height: $mark-size*.7;
+  border-radius: 50%;
+  border: $mark-size*.15 solid gray;
+}
+
+.cell{
+  position: relative;
+  width: $cell-size;
+  height: $cell-size;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cell.x, .cell.o{
+  cursor: not-allowed;
+}
+
+
+// type of OX
+.cell.x::after, .cell.x::before{
+  content: '';
+  position: absolute;
+  width: $mark-size*0.15;
+  height: $mark-size;
+  background-color: blue;
+}
+
+.cell.x::after{
+  transform: rotate(45deg);
+}
+.cell.x::before{
+  transform: rotate(-45deg)
+}
+
+.cell.o::after{
+  content: '';
+  position: absolute;
+  width: $mark-size*.7;
+  height: $mark-size*.7;
+  border-radius: 50%;
+  border: $mark-size*.15 solid red;
+}
+
+.restart{
+  width: 20%;
+  height: 10%;
+  border: royalblue solid 2px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: royalblue;
+  font-size: 2rem;
+  font-weight: 500;
+  transition: .2s ease-in-out all;
+  &:hover{
+    color: #fff;
+    background-color: royalblue;
+  }
+}
+
+.playground .restart{
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translate(-10%, -50%);
+}
+
+.background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  opacity: 0.5;
+  transition: .5s ease-in-out opacity;
+}
+
+.message{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  transform: scale(1);
+  z-index: 10;
+  transition: .5s ease-in-out transform;
+  .box{
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    background: #fff;
+  }
+}
+
+.message.none{
+  transform: scale(0);
+}
+
+.background.none{
+  opacity: 0;
+}
+
+i{
+  font-size: 2.5rem;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+
+.rule{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  h1{
+    font-size: 3rem;
+  }
+  p{
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    span{
+      color: red;
+      font-weight: 500;
+    }
+  }
+}
+
+.result{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  p{
+    font-size: 5rem;
+    order: 1
+  }
+  .restart{
+    order: 2;
+  }
+}
+
+.result.none, .rule.none{
+  display: none;
+}

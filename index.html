@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/all.css">
+  <title>harder tic-tac-toe</title>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="message">
+    <div class="box rule">
+      <i class="fas fa-times close"></i>
+      <h1>Read the rules first</h1>
+      <div class="detail">
+        <p>1. It's a harder tic-tac-toe</p>
+        <p>2. There are <span>9 boxes</span> on the board and each of them has <span>9 cells</span></p>
+        <p>3. X goes first</p>
+        <p>4. If you place the mark on the <span>right cell</span>, the next player could only place the mark on the <span>right box</span></p>
+        <p>5. Anyone who gets <span>one line in the box </span>  win the game!!</p>
+        <p>6. If X wins the game at first, next time will be O goes first</p>
+        <p>7. <span>Have fun !!!</span></p>
+      </div>
+      <button class="restart">start game!</button>
+    </div>
+    <div class="box result none">
+      <i class="fas fa-times close"></i>
+      <button class="restart">restart</button>
+    </div>
+  </div>
+
+  <div class="playground">
+    <div class="board x" id="0" data-type="0">
+      <div class="cell" data-type="0" data-place="0"></div>
+      <div class="cell" data-type="1" data-place="1"></div>
+      <div class="cell" data-type="2" data-place="2"></div>
+      <div class="cell" data-type="3" data-place="3"></div>
+      <div class="cell" data-type="4" data-place="4"></div>
+      <div class="cell" data-type="5" data-place="5"></div>
+      <div class="cell" data-type="6" data-place="6"></div>
+      <div class="cell" data-type="7" data-place="7"></div>
+      <div class="cell" data-type="8" data-place="8"></div>
+    </div>
+
+    <div class="board x" id="1" data-type="1">
+      <div class="cell" data-type="0" data-place="9"></div>
+      <div class="cell" data-type="1" data-place="10"></div>
+      <div class="cell" data-type="2" data-place="11"></div>
+      <div class="cell" data-type="3" data-place="12"></div>
+      <div class="cell" data-type="4" data-place="13"></div>
+      <div class="cell" data-type="5" data-place="14"></div>
+      <div class="cell" data-type="6" data-place="15"></div>
+      <div class="cell" data-type="7" data-place="16"></div>
+      <div class="cell" data-type="8" data-place="17"></div>
+    </div>
+  
+    <div class="board x" id="2" data-type="2">
+      <div class="cell" data-type="0" data-place="18"></div>
+      <div class="cell" data-type="1" data-place="19"></div>
+      <div class="cell" data-type="2" data-place="20"></div>
+      <div class="cell" data-type="3" data-place="21"></div>
+      <div class="cell" data-type="4" data-place="22"></div>
+      <div class="cell" data-type="5" data-place="23"></div>
+      <div class="cell" data-type="6" data-place="24"></div>
+      <div class="cell" data-type="7" data-place="25"></div>
+      <div class="cell" data-type="8" data-place="26"></div>
+    </div>
+  
+    <div class="board x" id="3" data-type="3">
+      <div class="cell" data-type="0" data-place="27"></div>
+      <div class="cell" data-type="1" data-place="28"></div>
+      <div class="cell" data-type="2" data-place="29"></div>
+      <div class="cell" data-type="3" data-place="30"></div>
+      <div class="cell" data-type="4" data-place="31"></div>
+      <div class="cell" data-type="5" data-place="32"></div>
+      <div class="cell" data-type="6" data-place="33"></div>
+      <div class="cell" data-type="7" data-place="34"></div>
+      <div class="cell" data-type="8" data-place="35"></div>
+    </div>
+  
+    <div class="board x" id="4" data-type="4">
+      <div class="cell" data-type="0" data-place="36"></div>
+      <div class="cell" data-type="1" data-place="37"></div>
+      <div class="cell" data-type="2" data-place="38"></div>
+      <div class="cell" data-type="3" data-place="39"></div>
+      <div class="cell" data-type="4" data-place="40"></div>
+      <div class="cell" data-type="5" data-place="41"></div>
+      <div class="cell" data-type="6" data-place="42"></div>
+      <div class="cell" data-type="7" data-place="43"></div>
+      <div class="cell" data-type="8" data-place="44"></div>
+    </div>
+  
+    <div class="board x" id="5" data-type="5">
+      <div class="cell" data-type="0" data-place="45"></div>
+      <div class="cell" data-type="1" data-place="46"></div>
+      <div class="cell" data-type="2" data-place="47"></div>
+      <div class="cell" data-type="3" data-place="48"></div>
+      <div class="cell" data-type="4" data-place="49"></div>
+      <div class="cell" data-type="5" data-place="50"></div>
+      <div class="cell" data-type="6" data-place="51"></div>
+      <div class="cell" data-type="7" data-place="52"></div>
+      <div class="cell" data-type="8" data-place="53"></div>
+    </div>
+  
+    <div class="board x" id="6" data-type="6">
+      <div class="cell" data-type="0" data-place="54"></div>
+      <div class="cell" data-type="1" data-place="55"></div>
+      <div class="cell" data-type="2" data-place="56"></div>
+      <div class="cell" data-type="3" data-place="57"></div>
+      <div class="cell" data-type="4" data-place="58"></div>
+      <div class="cell" data-type="5" data-place="59"></div>
+      <div class="cell" data-type="6" data-place="60"></div>
+      <div class="cell" data-type="7" data-place="61"></div>
+      <div class="cell" data-type="8" data-place="62"></div>
+    </div>
+  
+    <div class="board x" id="7" data-type="7">
+      <div class="cell" data-type="0" data-place="63"></div>
+      <div class="cell" data-type="1" data-place="64"></div>
+      <div class="cell" data-type="2" data-place="65"></div>
+      <div class="cell" data-type="3" data-place="66"></div>
+      <div class="cell" data-type="4" data-place="67"></div>
+      <div class="cell" data-type="5" data-place="68"></div>
+      <div class="cell" data-type="6" data-place="69"></div>
+      <div class="cell" data-type="7" data-place="70"></div>
+      <div class="cell" data-type="8" data-place="71"></div>
+    </div>
+  
+    <div class="board x" id="8" data-type="8">
+      <div class="cell" data-type="0" data-place="72"></div>
+      <div class="cell" data-type="1" data-place="73"></div>
+      <div class="cell" data-type="2" data-place="74"></div>
+      <div class="cell" data-type="3" data-place="75"></div>
+      <div class="cell" data-type="4" data-place="76"></div>
+      <div class="cell" data-type="5" data-place="77"></div>
+      <div class="cell" data-type="6" data-place="78"></div>
+      <div class="cell" data-type="7" data-place="79"></div>
+      <div class="cell" data-type="8" data-place="80"></div>
+    </div>
+
+    <!--  restart button -->
+    <button class="restart">restart</button>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==' crossorigin='anonymous'></script>
+  <script src="./all.js"></script>
+</body>
+</html>
